@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -45,11 +47,13 @@ class MySwitch extends StatelessWidget{
               'Hello!',
               style: TextStyle(fontSize: 18.0),
             ),
-            Switch(
+            Theme.of(context).platform == TargetPlatform.iOS
+            ? CupertinoSwitch(
               value: true,
-              onChanged: (bool value){
-                print('changed $value');
-              },
+              onChanged: (bool value) { print("print iOS => $value");},
+            ) : Switch(
+              value: true,
+              onChanged: (bool value) { print("print Android => $value");},
             )
           ],
         ),
