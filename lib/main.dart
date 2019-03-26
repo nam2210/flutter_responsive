@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+//final Color backgroundColor = Color(0xFFAABBCC);
+//final Color backgroundColor1 = Color.fromARGB(0xFF, 0x42, 0xA5, 0xF5);
+final backgroundColor = Color(0xFFAABBCC);
+final backgroundColor1 = Color.fromARGB(0xFF, 0x42, 0xA5, 0xF5);
+final bgColor2 = Color.fromARGB(255, 20, 20, 0);
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -20,7 +26,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: MySwitch("My Switch"),
     );
@@ -45,7 +51,7 @@ class MySwitch extends StatelessWidget{
           children: <Widget>[
             Text(
               'Hello!',
-              style: TextStyle(fontSize: 18.0),
+              style: TextStyle(fontSize: 18.0, color: backgroundColor),
             ),
             Theme.of(context).platform == TargetPlatform.iOS
             ? CupertinoSwitch(
